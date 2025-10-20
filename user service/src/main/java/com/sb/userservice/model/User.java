@@ -4,6 +4,10 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDateTime;
 
@@ -17,28 +21,46 @@ public class User {
 
     private String fullName;
 
+    public String getUsername() {
+        return username;
+    }
 
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    private String username;
+
+    @NotBlank(message = "email is must")
+    @Email(message = "Email should be valid.")
     private String email;
-
 
     private String phone;
 
+    @NotBlank(message = "role is must")
     private String role;
 
+    @CreationTimestamp
     private LocalDateTime createdAt;
 
+    @UpdateTimestamp
     private LocalDateTime updatedAt;
 
-   public User()
+    @NotBlank(message = "password is must")
+    private String password;
+
+    public User()
    {}
 
-    public User(String fullName, String email, String phone, String role, LocalDateTime createdAt, LocalDateTime updatedAt) {
+    public User(String fullName, String email, String phone, String role, LocalDateTime createdAt, LocalDateTime updatedAt, String password, String username) {
         this.fullName = fullName;
         this.email = email;
         this.phone = phone;
         this.role = role;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
+        this.password = password;
+        this.username = username;
     }
     public Long getId() {
         return id;
@@ -94,5 +116,13 @@ public class User {
 
     public void setUpdatedAt(LocalDateTime updatedAt) {
         this.updatedAt = updatedAt;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }
