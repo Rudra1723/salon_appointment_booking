@@ -6,13 +6,20 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDateTime;
 
 @Entity
-
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class User {
 
     @Id
@@ -49,8 +56,8 @@ public class User {
     @NotBlank(message = "password is must")
     private String password;
 
-    public User()
-   {}
+//    public User()
+//   {}
 
     public User(String fullName, String email, String phone, String role, LocalDateTime createdAt, LocalDateTime updatedAt, String password, String username) {
         this.fullName = fullName;
