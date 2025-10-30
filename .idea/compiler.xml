@@ -8,6 +8,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="category_service" />
+        <module name="service_offering" />
         <module name="userService" />
       </profile>
       <profile name="Annotation profile for salon service" enabled="true">
@@ -25,6 +26,7 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="category_service" options="-parameters" />
       <module name="salonservice" options="-parameters" />
+      <module name="service_offering" options="-parameters" />
       <module name="userService" options="-parameters" />
     </option>
   </component>
